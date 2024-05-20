@@ -5,11 +5,7 @@
 package com.labrary.vista;
 
 import java.awt.Color;
-import javax.swing.JOptionPane;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
+import com.labrary.control.LoginControl;
 /**
  *
  * @author yimis
@@ -282,17 +278,13 @@ public class login extends javax.swing.JFrame {
 
     private void logTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logTextMouseClicked
         // TODO add your handling code here:
-        
-       String user=userTxt.getText();
-       String password=passwordTxt.getText();
-       if(user.equals("admin")&& password.equals("123")){
-           JOptionPane.showMessageDialog(this, "user loged");
-           new dashboard().setVisible(true);
-           dispose();
-       }else {
-            
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+        LoginControl loginControl=new LoginControl();
+        if( loginControl.loginAuthenticate(userTxt.getText(),passwordTxt.getText())){
+            new dashboard().setVisible(true);
+            dispose();
         }
+        
+       
     }//GEN-LAST:event_logTextMouseClicked
 
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
