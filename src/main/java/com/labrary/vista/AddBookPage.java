@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.labrary.vista;
-
+import static com.labrary.control.ConnectionBase.*;
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
+
 
 /**
  *
@@ -50,7 +52,12 @@ public class AddBookPage extends javax.swing.JFrame {
         authorText.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         authorText.setText("Author");
 
-        authorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        authorComboBox.setModel(new DefaultComboBoxModel<>(Author));
+        authorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                authorComboBoxActionPerformed(evt);
+            }
+        });
 
         nametext.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         nametext.setText("Name");
@@ -66,6 +73,12 @@ public class AddBookPage extends javax.swing.JFrame {
         });
 
         addBtn.setBackground(new java.awt.Color(204, 204, 204));
+        addBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addBtnMouseClicked(evt);
+            }
+        });
 
         addPanel.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         addPanel.setText("ADD");
@@ -190,7 +203,7 @@ public class AddBookPage extends javax.swing.JFrame {
     }//GEN-LAST:event_pagesTxtActionPerformed
 
     private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_exitBtnMouseClicked
 
     private void exitBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseEntered
@@ -212,6 +225,27 @@ public class AddBookPage extends javax.swing.JFrame {
     private void exitPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_exitPanelMouseExited
+
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+         
+                String names = nameTxt.getText();
+                String author = (String) authorComboBox.getSelectedItem();
+                int pages = Integer.parseInt(pagesTxt.getText());
+
+                model.addRow(new Object[]{names, author, pages});
+
+                nameTxt.setText("");
+                pagesTxt.setText("");
+        
+    }//GEN-LAST:event_addBtnMouseClicked
+
+    private void authorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_authorComboBoxActionPerformed
+
+  public void updateAuthorComboBoxModel(String[] authors) {
+    authorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(authors));
+}
 
     /**
      * @param args the command line arguments

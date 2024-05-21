@@ -5,7 +5,7 @@
 package com.labrary.vista;
 
 import java.awt.Color;
-
+import com.labrary.control.ConnectionBase;
 /**
  *
  * @author yimis
@@ -18,6 +18,8 @@ public class dashboard extends javax.swing.JFrame {
     public dashboard() {
         initComponents();
         setLocationRelativeTo(null);
+        reportTable.setModel(ConnectionBase.model);
+
     }
 
     /**
@@ -43,6 +45,8 @@ public class dashboard extends javax.swing.JFrame {
         exitBtn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reportTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,6 +58,7 @@ public class dashboard extends javax.swing.JFrame {
 
         reportTxt.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
         reportTxt.setText("Show reports");
+        reportTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         addBookTxt.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
         addBookTxt.setText("Add book");
@@ -66,6 +71,12 @@ public class dashboard extends javax.swing.JFrame {
 
         addAuthorTxt.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
         addAuthorTxt.setText("Add author");
+        addAuthorTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addAuthorTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addAuthorTxtMouseClicked(evt);
+            }
+        });
 
         editTxt.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
         editTxt.setText("Edit book ");
@@ -176,15 +187,23 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jScrollPane1.setViewportView(reportTable);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 680, 580));
@@ -233,6 +252,10 @@ public class dashboard extends javax.swing.JFrame {
        
     }//GEN-LAST:event_addBookTxtMouseClicked
 
+    private void addAuthorTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAuthorTxtMouseClicked
+        new AddAuthor().setVisible(true);
+    }//GEN-LAST:event_addAuthorTxtMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -280,7 +303,9 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel exitPanel;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel optionPanel;
+    private javax.swing.JTable reportTable;
     private javax.swing.JLabel reportTxt;
     private javax.swing.JSeparator separatorTxt;
     // End of variables declaration//GEN-END:variables

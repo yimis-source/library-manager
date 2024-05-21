@@ -4,8 +4,39 @@
  */
 package com.labrary.control;
 
-import com.labrary.model.User;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 
 public class ConnectionBase {
     
+    public static String[] Author = {"Miguel de Cervantes", "Gabriel García Márquez", "George Orwell"};
+    public static String[] names = {"El Quijote", "Cien Años de Soledad", "1984"};
+    public static int[] pages = {863, 471, 328};
+    
+    DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>(Author);
+    public static DefaultTableModel model;
+    
+
+    static {
+        // Crear el modelo de la tabla
+        model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return true;
+            }
+        };
+        model.addColumn("Nombre");
+        model.addColumn("Autor");
+        model.addColumn("Páginas");
+
+        // Agregar filas al modelo de la tabla
+        for (int i = 0; i < names.length; i++) {
+            model.addRow(new Object[]{names[i], Author[i], pages[i]});
+        }
+        
+    }
 }
+   
+
