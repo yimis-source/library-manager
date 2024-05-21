@@ -6,7 +6,9 @@ package com.labrary.vista;
 
 import static com.labrary.control.ConnectionBase.Author;
 import java.awt.Color;
+import java.awt.Window;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +40,8 @@ public class AddAuthor extends javax.swing.JFrame {
         addAuthorBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         backgrond.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -183,17 +187,21 @@ public class AddAuthor extends javax.swing.JFrame {
     }//GEN-LAST:event_exitPanelMouseExited
 
     private void addAuthorBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAuthorBtnMouseClicked
-      
-    String newAuthor = newAuthorTxt.getText();
-    Author = Arrays.copyOf(Author, Author.length + 1);
-    Author[Author.length - 1] = newAuthor;
-    
-    // Obtén la instancia existente de AddBookPage
-    AddBookPage addBookPage = (AddBookPage) java.awt.Window.getWindows()[0];
-    addBookPage.updateAuthorComboBoxModel(Author);
-    
-    newAuthorTxt.setText("");
+          
         
+        String newAuthor = newAuthorTxt.getText();
+        if (newAuthor != null && !newAuthor.isEmpty()) {
+            
+            Author = Arrays.copyOf(Author, Author.length + 1);
+            
+            Author[Author.length - 1] = newAuthor;
+            JOptionPane.showMessageDialog(null, "Autor agregado: " + newAuthor);
+            newAuthorTxt.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se proporcionó un nombre de autor válido.");
+             newAuthorTxt.setText("");
+        }
+    
     }//GEN-LAST:event_addAuthorBtnMouseClicked
 
     /**

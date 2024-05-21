@@ -39,8 +39,6 @@ public class dashboard extends javax.swing.JFrame {
         addBookSeparator = new javax.swing.JSeparator();
         addAuthorTxt = new javax.swing.JLabel();
         addAuthorSeparator = new javax.swing.JSeparator();
-        editTxt = new javax.swing.JLabel();
-        editSeparator = new javax.swing.JSeparator();
         exitPanel = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -77,9 +75,6 @@ public class dashboard extends javax.swing.JFrame {
                 addAuthorTxtMouseClicked(evt);
             }
         });
-
-        editTxt.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
-        editTxt.setText("Edit book ");
 
         exitPanel.setBackground(new java.awt.Color(0, 153, 255));
         exitPanel.setForeground(new java.awt.Color(0, 153, 255));
@@ -149,10 +144,7 @@ public class dashboard extends javax.swing.JFrame {
                                 .addComponent(addBookSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(addAuthorTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(addAuthorSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(editTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(editSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(addAuthorSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(optionPanelLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -174,11 +166,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addComponent(addAuthorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addAuthorSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(148, 148, 148)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 95, Short.MAX_VALUE))
         );
@@ -222,15 +210,13 @@ public class dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_exitBtnMouseClicked
-
-    private void exitBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseEntered
+    private void exitPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseExited
         // TODO add your handling code here:
-        exitPanel.setBackground(Color.red);
-        exitBtn.setForeground(Color.white);
-    }//GEN-LAST:event_exitBtnMouseEntered
+    }//GEN-LAST:event_exitPanelMouseExited
+
+    private void exitPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitPanelMouseEntered
 
     private void exitBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseExited
         // TODO add your handling code here:
@@ -238,23 +224,25 @@ public class dashboard extends javax.swing.JFrame {
         exitBtn.setForeground(Color.black);
     }//GEN-LAST:event_exitBtnMouseExited
 
-    private void exitPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseEntered
+    private void exitBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_exitPanelMouseEntered
+        exitPanel.setBackground(Color.red);
+        exitBtn.setForeground(Color.white);
+    }//GEN-LAST:event_exitBtnMouseEntered
 
-    private void exitPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_exitPanelMouseExited
-
-    private void addBookTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBookTxtMouseClicked
-        
-        new AddBookPage().setVisible(true);
-       
-    }//GEN-LAST:event_addBookTxtMouseClicked
+    private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitBtnMouseClicked
 
     private void addAuthorTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAuthorTxtMouseClicked
         new AddAuthor().setVisible(true);
     }//GEN-LAST:event_addAuthorTxtMouseClicked
+
+    private void addBookTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBookTxtMouseClicked
+
+        new AddBookPage().setVisible(true);
+
+    }//GEN-LAST:event_addBookTxtMouseClicked
 
     /**
      * @param args the command line arguments
@@ -297,8 +285,6 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JSeparator addBookSeparator;
     private javax.swing.JLabel addBookTxt;
     private javax.swing.JPanel background;
-    private javax.swing.JSeparator editSeparator;
-    private javax.swing.JLabel editTxt;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JPanel exitPanel;
     private javax.swing.JLabel jLabel5;
